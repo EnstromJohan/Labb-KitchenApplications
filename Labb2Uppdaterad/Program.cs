@@ -38,16 +38,21 @@ public class Kitchen
                 UseAppliance(KitchenAppliances);
                 break;
             case "2":
-                AddAppliance
+                AddAppliance(KitchenAppliances);
                 break;
             case "3":
+                ListAppliances(KitchenAppliances);
                 break;
             case "4":
+                RemoveAppliances(KitchenAppliances);
                 break;
             case "5":
+                EndApplication(KitchenAppliances);
+                menu = false;
+                break;
                 break;
             default:
-                Console.WriteLine("Ogiltigt val");
+                Console.WriteLine("OGILTIGT VAL");
                 Console.ReadKey();
                 Console.Clear();
                 return;
@@ -68,7 +73,7 @@ public class Kitchen
         int userChoice = Convert.ToInt32(Console.ReadLine());
         var listChoice = KitchenAppliances.ElementAt(userChoice);
 
-        if (isFunctioning = false)
+        if (isFunctioning == false)
         {
             Console.WriteLine("APPARATEN ÄR TRASIG");
         }
@@ -97,10 +102,48 @@ public class Kitchen
         if (answer == "j")
         {
             isFunctioning = true;
-            KitchenAppliances.Add(type)
+            KitchenAppliances.Add(type + "," + brand);
+            Console.WriteLine("TILLAGD");
+        }
+        else
+        {
+            KitchenAppliances.Add(type + ", " + brand);
+            Console.WriteLine("TILLAGD");
+        }
+        Console.ReadKey();
+        Console.Clear();
+    }
+
+    void ListAppliances(List<string> KitchenAppliances)
+    {
+        Console.WriteLine("===KÖKSAPPARATER===");
+        int i = 0;
+        foreach (var item in KitchenAppliances)
+        {
+            Console.WriteLine($"{i}: {item}");
+            i++;
         }
     }
 
+    void RemoveAppliances(List<string> KitchenAppliances)
+    {
+        Console.WriteLine("VÄLJ VILKEN DU VILL TA BORT\n>>");
+        int i = 0;
+        foreach (var item in KitchenAppliances)
+        {
+            Console.WriteLine($"{i}: {item}");
+            i++;
+        }
+        int removed = Convert.ToInt32(Console.ReadLine());
+        var list = KitchenAppliances.ElementAt(removed);
+        KitchenAppliances.Remove(list);
+        Console.WriteLine($"{list} TOGS BORT");
+    }
+
+    void EndApplication(List<string> KitchenAppliances)
+    {
+        return;
+    }
     public void DisplayApplication()
     {
         do
