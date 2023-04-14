@@ -23,7 +23,7 @@ public class Kitchen
             "2. LÄGG TILL KÖKSAPPARAT\n" +
             "3. LISTA KÖKSAPPARAT\n" +
             "4. TA BORT KÖKSAPPARAT\n" +
-            "5. AVSLUTA");
+            "5. STÄNG MENY");
         Console.Write("GÖR DITT VAL >> ");
 
     }
